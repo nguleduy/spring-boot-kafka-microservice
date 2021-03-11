@@ -1,0 +1,38 @@
+version: '3'
+services:
+  discovery-service:
+    build: eureka-service
+    image: nguleduy/discovery-service
+    restart: always
+    ports:
+      - 8761:8761
+
+  config-server:
+    build: config-server
+    image: nguleduy/config-server
+    restart: always
+    depends_on:
+      discovery-service:
+        condition: service_healthy
+    ports:
+      - 8888:8888
+
+  email-service:
+    build: email-service
+    image: nguleduy/email-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8082:8082
+
+  user-account-service:
+    build: user-account-service
+    image: nguleduy/user-account-service
+    restart: always
+    depends_on:
+      config-server:
+        condition: service_healthy
+    ports:
+      - 8081:8081
