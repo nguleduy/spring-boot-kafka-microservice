@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/nguleduy/spring-boot-kafka-microservice.git/
           search-paths:
             - "configuration-properties/{application}/{profile}"
