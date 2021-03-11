@@ -7,4 +7,4 @@ spring:
         git:
           uri:
           search-paths:
-            - "EmailServiceConfigProperties/{application}/{profile}"
+            - "configuration-properties/{application}/{profile}"
