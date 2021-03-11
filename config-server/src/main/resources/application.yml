@@ -1,0 +1,10 @@
+spring:
+  profile:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+          search-paths:
+            - "EmailServiceConfigProperties/{application}/{profile}"
